@@ -1,3 +1,10 @@
+:root {
+  --main-color: #27A88F;
+  --header-color: #10364C;
+  --main-text: #DBD0DA;
+  --sub-text: #10364C;
+}
+
 html, body, .root {
   height: 100%;
 }
@@ -5,20 +12,20 @@ body {
   line-height: 1.5;
 }
 body, .app {
-  background: white;
+  background: var(--main-color);
 }
 
 /* main page */
 
 .list-books-title {
   padding: 10px 0;
-  background: #2e7c31;
+  background: var(--header-color);
   text-align: center;
 }
 .list-books-title h1 {
   font-weight: 400;
   margin: 0;
-  color: white;
+  color: var(--main-text);
 }
 
 .list-books-content {
@@ -37,6 +44,7 @@ body, .app {
 }
 
 .bookshelf-title {
+  color: var(--sub-text);
   border-bottom: 1px solid #dedede;
 }
 .bookshelf-books {

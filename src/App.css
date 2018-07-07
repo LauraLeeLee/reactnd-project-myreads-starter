@@ -136,9 +136,10 @@ body, .app {
 }
 .book-title {
   margin-top: 10px;
+  color: var(--main-text);
 }
 .book-authors {
-  color: #999;
+  color: var(--header-color);
 }
 
 .book-top {

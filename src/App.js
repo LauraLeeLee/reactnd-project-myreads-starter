@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import ReactDOM from 'react-dom';
 import Header from './Header';
-import Shelf from './Shelf';
+import Shelves from './Shelves';
 
 class BooksApp extends React.Component {
   state = {

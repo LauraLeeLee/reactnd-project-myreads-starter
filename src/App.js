@@ -4,6 +4,7 @@ import './App.css';
 import ReactDOM from 'react-dom';
 import Header from './Header';
 import Shelves from './Shelves';
+import Book from './Book';
 
 class BooksApp extends React.Component {
   state = {

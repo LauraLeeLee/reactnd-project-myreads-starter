@@ -19,10 +19,9 @@ class  Book extends Component {
         </div>
         <div className="book-title">To Kill a Mockingbird</div>
         <div className="book-authors">Harper Lee</div>
-      </div>  
+      </div>
     )
   }
-
 }
 
 export default Book

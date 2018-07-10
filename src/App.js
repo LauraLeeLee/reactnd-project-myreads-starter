@@ -9,7 +9,7 @@ import Search from './Search';
 
 class BooksApp extends React.Component {
   state = {
-
+    screen: 'list', //list or search
     books: [],
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -29,14 +29,19 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
+        {this.state.screen === 'list' && (
           <div className="list-books">
               <Header/>
               <Shelves books={this.state.books}/>
 
             <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+              <a href='#search' onClick={() => this.setState({ screen: 'search' })}>Add a book</a>
             </div>
           </div>
+        )}
+          {this.state.screen === 'search' && (
+            <Search />
+          )}
       </div>
     )
   }

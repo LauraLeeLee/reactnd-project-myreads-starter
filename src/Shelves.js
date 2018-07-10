@@ -27,6 +27,9 @@ class  Shelves extends Component {
             </div>
           )}
         </div>
+        <div className="open-search">
+          <a href='#search' onClick={() => this.setState({ screen: 'search' })}>Add a book</a>
+        </div>
       </div>
 
     )

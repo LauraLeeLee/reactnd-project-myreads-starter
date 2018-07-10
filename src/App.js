@@ -21,9 +21,11 @@ class BooksApp extends React.Component {
   }
 
   componentDidMount() {
-    fetch(BooksAPI).then((book) => this.setState({
-      books.push(book);
-    }))
+    fetch(BooksAPI).then((books) =>
+    this.setState({
+      books: books
+     })
+    )
   }
 
   render() {
@@ -31,7 +33,7 @@ class BooksApp extends React.Component {
       <div className="app">
           <div className="list-books">
               <Header/>
-              <Shelves />
+              <Shelves books={this.state.books}/>
 
             <div className="open-search">
               <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>

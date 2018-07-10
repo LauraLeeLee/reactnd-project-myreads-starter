@@ -15,10 +15,14 @@ class  Shelves extends Component {
               <h2 className="bookshelf-title">{bookShelfNames[index]}</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                    {this.props.books.map(book => (
+
+                     {this.props.books.map(book => (
+                      <li>
                       <Book key={book.id}/>
+                      </li>
                     ))
                   }
+
                 </ol>
               </div>
             </div>

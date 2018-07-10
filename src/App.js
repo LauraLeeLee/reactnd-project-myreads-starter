@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI'
 import './App.css';
 import ReactDOM from 'react-dom';
@@ -29,19 +30,16 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        {this.state.screen === 'list' && (
+        <Route exact path="/" render={() => (
           <div className="list-books">
               <Header/>
-              <Shelves books={this.state.books}/>
-
-            <div className="open-search">
-              <a href='#search' onClick={() => this.setState({ screen: 'search' })}>Add a book</a>
-            </div>
+              <Shelves books={this.state.books}
+      
+              />
           </div>
-        )}
-          {this.state.screen === 'search' && (
-            <Search />
-          )}
+        )}/>
+
+        <Route path='/search' component={Search} />
       </div>
     )
   }

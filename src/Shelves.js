@@ -9,6 +9,7 @@ class  Shelves extends Component {
     const bookShelfNames = ["Currently Reading", "Want To Read", "Read"]
 
     return (
+      <div className="list-books">
       <div className="list-books-content">
         <div>
           {bookshelves.map((shelf, index) =>
@@ -26,6 +27,7 @@ class  Shelves extends Component {
               </div>
             </div>
           )}
+        </div>
         </div>
         <div className="open-search">
           <Link to="/search">Add a book</Link>

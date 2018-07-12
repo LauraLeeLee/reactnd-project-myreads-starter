@@ -9,12 +9,14 @@ class  Shelves extends Component {
     onChangeShelf: PropTypes.func.isRequired
 }
 
+
+
   render() {
     const bookshelves = ["currentlyReading", "wantToRead", "read"]
     const bookShelfNames = ["Currently Reading", "Want To Read", "Read"]
 
     return (
-      <div className="list-books-content" onchange={this.props.onChangeShelf}>
+      <div className="list-books-content" onChange={this.props.onChangeShelf}>
         <div>
           {bookshelves.map((shelf, index) =>
             <div key={index} className="bookshelf">

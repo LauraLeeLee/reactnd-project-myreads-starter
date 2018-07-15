@@ -13,7 +13,6 @@ class BooksApp extends React.Component {
   state = {
     screen: 'list', //list or search
     books: [],
-    shelf: '',
     /**
      * TODO: Instead of using this state variable to keep track of which page
      * we're on, use the URL in the browser's address bar. This will ensure that
@@ -26,8 +25,13 @@ class BooksApp extends React.Component {
   changeShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(() => {
       book.shelf = shelf;
-      this.setState(this.state.shelf);
     });
+    this.setState(this.state.shelf);
+    console.log(this.state.shelf);
+  }
+
+  changerooShelf = (shelf) => {
+
   }
 
   componentDidMount() {
@@ -43,6 +47,7 @@ class BooksApp extends React.Component {
           <div className="list-books">
               <Header/>
               <Shelves books={this.state.books}
+                      shelf={this.state.shelf}
                        onChangeShelf={this.changeShelf}  />
           </div>
         )}/>

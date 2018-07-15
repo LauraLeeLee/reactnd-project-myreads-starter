@@ -6,8 +6,9 @@ import PropTypes from 'prop-types';
 
 class  Shelves extends Component {
   static propTypes = {
-    onChangeShelf: PropTypes.func.isRequired
-}
+    onChangeShelf: PropTypes.func.isRequired,
+    // books: PropTypes.array.isRequired
+  }
 
 
 
@@ -23,9 +24,10 @@ class  Shelves extends Component {
               <h2 className="bookshelf-title">{bookShelfNames[index]}</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                     {this.props.books.map(book => (
+                     {this.props.books.filter(book => book.shelf === shelf)
+                       .map(book => (
                       <li key={book.id}>
-                        <Book book={book}/>
+                        <Book book={book} />
                       </li>
                     ))
                   }

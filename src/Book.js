@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 class  Book extends Component {
   static propTypes = {
     book: PropTypes.object.isRequired,
+    books: PropTypes.array.isRequired,
     onChangeShelf: PropTypes.func.isRequired,
 }
 
@@ -24,6 +25,7 @@ class  Book extends Component {
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
           <SelectShelf  book={book}
+                        books={this.props.books}
                         onChangeShelf={this.props.onChangeShelf} />
         </div>
         <div className="book-title">{book.title}</div>

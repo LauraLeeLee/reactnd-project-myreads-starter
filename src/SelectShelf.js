@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 class  SelectShelf extends Component {
   static propTypes = {
     book: PropTypes.object.isRequired,
+    books: PropTypes.array.isRequired,
     onChangeShelf: PropTypes.func.isRequired,
   }
 

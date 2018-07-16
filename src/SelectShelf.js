@@ -8,25 +8,27 @@ class  SelectShelf extends Component {
     onChangeShelf: PropTypes.func.isRequired,
   }
 
+  constructor(props) {
+   super(props);
+   this.state = { value: ''};
+   this.handleChange= this.handleChange.bind(this);
+ }
+
   handleChange(e) {
     const book = this.props.book;
     const selectedShelf = e.target.value;
     this.props.onChangeShelf(book, selectedShelf);
+    // this.setState(this.state.value);
     console.log(selectedShelf);
   }
 
-  constructor(props) {
-   super(props);
-
-   this.handleChange= this.handleChange.bind(this);
- }
 
 // value={book.shelf} onChange={(e) => this.updateBook(e.target.value)}
 
   render () {
     return (
       <div className="book-shelf-changer">
-        <select onChange={this.handleChange}>
+        <select  onChange={this.handleChange}>
           <option value="move" disabled>Move to...</option>
           <option value="currentlyReading">Currently Reading</option>
           <option value="wantToRead">Want to Read</option>

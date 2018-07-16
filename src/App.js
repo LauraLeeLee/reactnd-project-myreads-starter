@@ -25,8 +25,11 @@ class BooksApp extends React.Component {
   changeShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(() => {
       let shelf = book.shelf;
-      this.setState(this.state.books);
+
     });
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books });
+    })
     console.log(book);
     console.log(this.state.books);
   }
@@ -44,7 +47,7 @@ class BooksApp extends React.Component {
           <div className="list-books">
               <Header/>
               <Shelves books={this.state.books}
-                      shelf={this.state.shelf}
+                       shelf={this.state.shelf}
                        onChangeShelf={this.changeShelf}  />
           </div>
         )}/>

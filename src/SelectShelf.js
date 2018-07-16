@@ -9,8 +9,9 @@ class  SelectShelf extends Component {
   }
 
   handleChange(e) {
+    const book = this.props.book;
     const selectedShelf = e.target.value;
-    this.props.onChangeShelf(selectedShelf);
+    this.props.onChangeShelf(selectedShelf, book);
   }
 
   constructor(props) {

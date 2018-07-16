@@ -32,10 +32,6 @@ class BooksApp extends React.Component {
     console.log(this.state.shelf);
   }
 
-  changerooShelf = (shelf) => {
-
-  }
-
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })

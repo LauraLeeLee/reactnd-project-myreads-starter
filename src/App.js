@@ -22,13 +22,13 @@ class BooksApp extends React.Component {
     // showSearchPage: false
   }
 
-  changeShelf = (book, selectedShelf) => {
-    BooksAPI.update(book, selectedShelf).then(() => {
+  changeShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf).then(() => {
       let shelf = book.shelf;
       this.setState(this.state.shelf);
 
     });
-    console.log(book.title);
+    console.log(book);
     console.log(this.state.shelf);
   }
 

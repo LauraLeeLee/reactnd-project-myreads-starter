@@ -17,7 +17,7 @@ class  Shelves extends Component {
     const bookShelfNames = ["Currently Reading", "Want To Read", "Read"]
 
     return (
-      <div className="list-books-content" >
+      <div className="list-books-content" onChange={this.props.onChangeShelf}>
         <div>
           {bookshelves.map((shelf, index) =>
             <div key={index} className="bookshelf">

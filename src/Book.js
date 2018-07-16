@@ -9,14 +9,6 @@ class  Book extends Component {
     onChangeShelf: PropTypes.func.isRequired,
 }
 
-  // constructor(props) {
-  //   super(props);
-  //   state: {
-  //     bookshelf: " "
-  //   }
-  // }
-
-
   render () {
     const { book } = this.props;
     console.log(book.shelf);
@@ -33,7 +25,7 @@ class  Book extends Component {
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
           <SelectShelf  book={book}
-                        onChange={this.props.onChangeShelf} />
+                        onChangeShelf={this.props.onChangeShelf} />
         </div>
         <div className="book-title">{book.title}</div>
         <div className="book-authors">{book.authors}</div>

@@ -11,7 +11,6 @@ class  Book extends Component {
 
   render () {
     const { book } = this.props;
-    console.log(book.shelf);
     // const { authors, title, shelf, imageLinks } = book;
     // console.log(book, authors, title, shelf);
     // console.log(imageLinks.thumbnail)

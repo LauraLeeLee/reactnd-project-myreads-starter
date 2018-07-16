@@ -10,15 +10,16 @@ class  SelectShelf extends Component {
 
   constructor(props) {
    super(props);
-   this.state = { value: ''};
+   this.state = {shelf: this.props.book.shelf};
    this.handleChange= this.handleChange.bind(this);
+   console.log(this.state);
  }
 
   handleChange(e) {
     const book = this.props.book;
     const selectedShelf = e.target.value;
     this.props.onChangeShelf(book, selectedShelf);
-    // this.setState(this.state.value);
+    this.setState({ shelf: this.props.book.shelf });
     console.log(selectedShelf);
   }
 
@@ -28,7 +29,7 @@ class  SelectShelf extends Component {
   render () {
     return (
       <div className="book-shelf-changer">
-        <select  onChange={this.handleChange}>
+        <select  value={this.props.book.shelf} onChange={this.handleChange}>
           <option value="move" disabled>Move to...</option>
           <option value="currentlyReading">Currently Reading</option>
           <option value="wantToRead">Want to Read</option>

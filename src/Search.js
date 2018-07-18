@@ -15,12 +15,13 @@ class Search extends Component {
     }
   }
 
-  searchQuery (query) {
-    this.setState({query: query});
+  getInput (e) {
+    this.setState({query: e.target.value});
 
   }
 
-  BooksAPI.search(query).then((response) => {
+  BooksAPI.search(query)
+    .then((response) => {
 
   });
 
@@ -45,7 +46,7 @@ class Search extends Component {
           </div>
           <div className="search-books-results">
             <ol className="books-grid">
-                  < Books />
+
             </ol>
           </div>
         </div>

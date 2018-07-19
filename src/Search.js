@@ -7,23 +7,29 @@ import PropTypes from 'prop-types';
 
 
 class Search extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       query: '',
       booksFound: [],
     }
+    this.HandleGetInput= this.HandleGetInput.bind(this);
   }
 
-  getInput (e) {
+  HandleGetInput(e) {
     this.setState({query: e.target.value});
-
+    this.searchBooks(e.target.value);
   }
 
-  BooksAPI.search(query)
-    .then((response) => {
+  searchBooks(query){
 
-  });
+    query = this.state.query;
+
+    BooksAPI.search(query)
+      .then((response) => {
+        console.log(response);
+    });
+  }
 
   render() {
     return(
@@ -40,7 +46,7 @@ class Search extends Component {
                 you don't find a specific author or title. Every search is limited by search terms.
               */}
               <input type="text" placeholder="Search by title or author"
-                     onChange={this.searchQuery}/>
+                     onChange={this.HandleGetInput}/>
 
             </div>
           </div>

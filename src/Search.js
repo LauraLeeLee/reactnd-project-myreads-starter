@@ -27,6 +27,7 @@ class Search extends Component {
 
     BooksAPI.search(query)
       .then((response) => {
+        console.log(query);
         console.log(response);
     });
   }

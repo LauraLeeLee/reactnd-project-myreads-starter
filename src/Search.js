@@ -19,16 +19,19 @@ class Search extends Component {
   HandleGetInput(e) {
     this.setState({query: e.target.value});
     this.searchBooks(e.target.value);
+      console.log(e.target.value);
+      console.log(this.query);
   }
 
   searchBooks(query){
-    if(this.state.query !=='') {
+    if(query !=='') {
       query = this.state.query;
 
       BooksAPI.search(query)
         .then((response) => {
           console.log(query);
-          console.log(response);
+            console.log(response);
+
       });
     }
   }

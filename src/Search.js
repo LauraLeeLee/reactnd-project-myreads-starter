@@ -20,23 +20,24 @@ class Search extends Component {
     this.setState({query: e.target.value});
     this.searchBooks(e.target.value);
       console.log(e.target.value);
-      console.log(this.query);
   }
 
-  searchBooks(query){
+  searchBooks(query, booksFound){
     if(query !=='') {
-      query = this.state.query;
+      // query = this.state.query;
 
       BooksAPI.search(query)
         .then((response) => {
+          this.setState({booksFound: response});
           console.log(query);
-            console.log(response);
-
+          console.log(response);
       });
     }
   }
 
   render() {
+    console.log(this.state.query);
+    console.log(this.state.booksFound);
     return(
         <div className="search-books">
           <div className="search-books-bar">

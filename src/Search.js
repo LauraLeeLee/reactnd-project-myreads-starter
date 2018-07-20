@@ -22,14 +22,15 @@ class Search extends Component {
   }
 
   searchBooks(query){
+    if(this.state.query !=='') {
+      query = this.state.query;
 
-    query = this.state.query;
-
-    BooksAPI.search(query)
-      .then((response) => {
-        console.log(query);
-        console.log(response);
-    });
+      BooksAPI.search(query)
+        .then((response) => {
+          console.log(query);
+          console.log(response);
+      });
+    }
   }
 
   render() {

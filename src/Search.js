@@ -21,7 +21,7 @@ class Search extends Component {
       booksFound: [],
     }
     this.handleGetInput= this.handleGetInput.bind(this);
-    // this.handleDebounce=this.handleDebounce.bind(this);
+    this.handleDebounce=this.handleDebounce.bind(this);
   }
 
   handleGetInput(e) {
@@ -85,7 +85,7 @@ class Search extends Component {
           </div>
           <div className="search-books-results">
             <ol className="books-grid">
-      
+
             </ol>
           </div>
         </div>

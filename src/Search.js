@@ -25,6 +25,7 @@ class Search extends Component {
   }
 
   handleGetInput(e) {
+    debugger;
     this.setState({query: e.target.value});
     this.searchBooks(e.target.value);
       console.log(e.target.value);
@@ -32,7 +33,7 @@ class Search extends Component {
 
   searchBooks(query, booksFound){
     if(query !=='') {
-      // query = this.state.query;
+      // query = e.target.value;
 
       BooksAPI.search(query)
         .then((response) => {
@@ -43,7 +44,7 @@ class Search extends Component {
     }
   }
 
-   debounced(delay, fn) {
+  debounced(delay, fn) {
     let timerId;
     return function (...args) {
       if (timerId) {
@@ -56,8 +57,12 @@ class Search extends Component {
    }
  }
 
-  handleDebounce() {
+  handleDebounce(query) {
+    query=this.state.query;
+    if(query) {
     this.debounced(400, this.handleGetInput);
+  }
+  console.log(query);
   }
 
   render() {

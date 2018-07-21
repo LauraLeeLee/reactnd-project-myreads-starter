@@ -1,23 +1,30 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import { Debounce } from 'react-throttle';
+// import { Debounce } from 'react-throttle';
 import * as BooksAPI from './BooksAPI';
-import Shelves from './Shelves';
+// import Shelves from './Shelves';
+// import SelectShelf from './SelectShelf';
 import Book from './Book';
 import PropTypes from 'prop-types';
 
 
 class Search extends Component {
+  static propTypes = {
+    book: PropTypes.object.isRequired,
+    books: PropTypes.array.isRequired,
+    onChangeShelf: PropTypes.func.isRequired,
+  }
   constructor(props) {
     super(props);
     this.state = {
       query: '',
       booksFound: [],
     }
-    this.HandleGetInput= this.HandleGetInput.bind(this);
+    this.handleGetInput= this.handleGetInput.bind(this);
+    // this.handleDebounce=this.handleDebounce.bind(this);
   }
 
-  HandleGetInput(e) {
+  handleGetInput(e) {
     this.setState({query: e.target.value});
     this.searchBooks(e.target.value);
       console.log(e.target.value);
@@ -36,6 +43,23 @@ class Search extends Component {
     }
   }
 
+   debounced(delay, fn) {
+    let timerId;
+    return function (...args) {
+      if (timerId) {
+        clearTimeout(timerId);
+      }
+      timerId = setTimeout(() => {
+        fn(...args);
+        timerId = null;
+      }, delay);
+   }
+ }
+
+  handleDebounce() {
+    this.debounced(400, this.handleGetInput);
+  }
+
   render() {
     console.log(this.state.query);
     console.log(this.state.booksFound);
@@ -52,16 +76,16 @@ class Search extends Component {
                 However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                 you don't find a specific author or title. Every search is limited by search terms.
               */}
-              <Debounce time="600" handler="onChange">
+
                 <input type="text" placeholder="Search by title or author"
-                     onChange={this.HandleGetInput}/>
-              </Debounce>
+                     onChange={this.handleDebounce} />
+
 
             </div>
           </div>
           <div className="search-books-results">
             <ol className="books-grid">
-
+      
             </ol>
           </div>
         </div>

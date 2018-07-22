@@ -10,10 +10,11 @@ import PropTypes from 'prop-types';
 
 class Search extends Component {
   static propTypes = {
-    book: PropTypes.object.isRequired,
+    // book: PropTypes.object.isRequired,
     books: PropTypes.array.isRequired,
     onChangeShelf: PropTypes.func.isRequired,
   }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -27,21 +28,21 @@ class Search extends Component {
   handleGetInput(e) {
     this.setState({query: e.target.value});
     this.searchBooks(e.target.value);
-      console.log(e.target.value);
+      console.log(this.state.query);
   }
 
   searchBooks(query, booksFound){
     if(query !=='') {
       // query = e.target.value;
+      console.log(query);
 
       BooksAPI.search(query)
         .then((response) => {
           this.setState({booksFound: response});
-          console.log(query);
           console.log(response);
-          console.log({booksFound});
       });
     }
+      console.log(this.state.booksFound);
   }
 
  //  debounced(delay, fn) {

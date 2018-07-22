@@ -21,11 +21,10 @@ class Search extends Component {
       booksFound: [],
     }
     this.handleGetInput= this.handleGetInput.bind(this);
-    this.handleDebounce=this.handleDebounce.bind(this);
+    // this.handleDebounce=this.handleDebounce.bind(this);
   }
 
   handleGetInput(e) {
-    debugger;
     this.setState({query: e.target.value});
     this.searchBooks(e.target.value);
       console.log(e.target.value);
@@ -40,30 +39,31 @@ class Search extends Component {
           this.setState({booksFound: response});
           console.log(query);
           console.log(response);
+          console.log({booksFound});
       });
     }
   }
 
-  debounced(delay, fn) {
-    let timerId;
-    return function (...args) {
-      if (timerId) {
-        clearTimeout(timerId);
-      }
-      timerId = setTimeout(() => {
-        fn(...args);
-        timerId = null;
-      }, delay);
-   }
- }
-
-  handleDebounce(query) {
-    query=this.state.query;
-    if(query) {
-    this.debounced(400, this.handleGetInput);
-  }
-  console.log(query);
-  }
+ //  debounced(delay, fn) {
+ //    let timerId;
+ //    return function (...args) {
+ //        if (timerId) {
+ //        clearTimeout(timerId);
+ //      }
+ //      timerId = setTimeout(() => {
+ //        fn(...args);
+ //        timerId = null;
+ //      }, delay);
+ //   }
+ // }
+ //
+ //  handleDebounce(query) {
+ //    query=this.state.query;
+ //    if(query) {
+ //    this.debounced(400, this.handleGetInput);
+ //  }
+ //  console.log(query);
+ //  }
 
   render() {
     console.log(this.state.query);
@@ -83,7 +83,7 @@ class Search extends Component {
               */}
 
                 <input type="text" placeholder="Search by title or author"
-                     onChange={this.handleDebounce} />
+                     onChange={this.handleGetInput} />
 
 
             </div>

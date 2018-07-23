@@ -58,12 +58,12 @@ class Search extends Component {
    }
  }
 
-  handleDebounce(query) {
-    query=this.state.query;
-    if(query) {
+  handleDebounce(e) {
+    // query=this.state.query;
+    if(e.target.value) {
     this.debounced(400, this.handleGetInput);
   }
-  console.log(query);
+  console.log(e.target.value);
   }
 
   render() {

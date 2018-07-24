@@ -15,27 +15,22 @@ class Search extends Component {
     onChangeShelf: PropTypes.func.isRequired,
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
       query: '',
       booksFound: [],
     }
-    this.handleGetInput= this.handleGetInput.bind(this);
-    // this.handleDebounce=this.handleDebounce.bind(this);
-  }
 
-  handleGetInput(e) {
-    this.setState({query: e.target.value});
-    this.searchBooks(e.target.value);
-      console.log(this.state.query);
-  }
 
-  searchBooks(query, booksFound){
+  // getInput(e) {
+  //   this.setState({query: e.target.value});
+  //   this.searchBooks(e.target.value);
+  //     console.log(this.state.query);
+  // }
+
+  searchBooks(e){
+    const query = e.target.value.trim();
+    this.setState({ query: query });
     if(query !=='') {
-      // query = e.target.value;
-      console.log(query);
-
       BooksAPI.search(query)
         .then((response) => {
           this.setState({booksFound: response});
@@ -44,27 +39,6 @@ class Search extends Component {
     }
       console.log(this.state.booksFound);
   }
-
- //  debounced(delay, fn) {
- //    let timerId;
- //    return function (...args) {
- //        if (timerId) {
- //        clearTimeout(timerId);
- //      }
- //      timerId = setTimeout(() => {
- //        fn(...args);
- //        timerId = null;
- //      }, delay);
- //   }
- // }
- //
- //  handleDebounce(e) {
- //    // query=this.state.query;
- //    if(e.target.value) {
- //    this.debounced(400, this.handleGetInput);
- //  }
- //  console.log(e.target.value);
- //  }
 
   render() {
     console.log(this.state.query);
@@ -83,14 +57,22 @@ class Search extends Component {
                 you don't find a specific author or title. Every search is limited by search terms.
               */}
               <Debounce time="500" handler="onChange">
-                <input type="text" placeholder="Search by title or author"
-                     onChange={this.handleGetInput} />
+                <input type="text"
+                       placeholder="Search by title or author"
+                       value={ this.state.query }
+                       onChange={this.searchBooks}
+                />
               </Debounce>
 
             </div>
           </div>
           <div className="search-books-results">
             <ol className="books-grid">
+              {// <Book
+              //       books = {this.props.books}
+              //       onChangeShelf={this.props.onChangeShelf}
+              // />
+            }
 
             </ol>
           </div>

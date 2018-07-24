@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SelectShelf from './SelectShelf';
 import PropTypes from 'prop-types';
+import noImage from './icons/noImage.png'
 
 
 class  Book extends Component {
@@ -24,7 +25,7 @@ class  Book extends Component {
       <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193,
-                          backgroundImage: `url(${book.imageLinks.thumbnail !== undefined ? book.imageLinks.thumbnail : ''})` }}>
+                          backgroundImage: `url(${book.imageLinks && book.imageLinks.thumbnail ? book.imageLinks.thumbnail : noImage})` }}>
           </div>
           <SelectShelf  book={book}
                         books={this.props.books}

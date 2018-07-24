@@ -15,21 +15,27 @@ class Search extends Component {
     onChangeShelf: PropTypes.func.isRequired,
   }
 
-  state = {
+  constructor(props) {
+   super(props);
+   this.state = {
       query: '',
       booksFound: [],
     }
+   // this.getInput=this.getInput.bind(this);
+   this.searchBooks= this.searchBooks.bind(this);
+  }
 
 
-  // getInput(e) {
-  //   this.setState({query: e.target.value});
-  //   this.searchBooks(e.target.value);
-  //     console.log(this.state.query);
+  // getInput(query) {
+  //
+  //   this.setState({query: query.trim()});
+  //   this.searchBooks(query);
+  //     console.log(query);
   // }
 
-  searchBooks(e){
-    const query = e.target.value.trim();
-    this.setState({ query: query });
+  searchBooks(query) {
+    // const query = e.target.value.trim();
+    this.setState({ query: query.trim() });
     if(query !=='') {
       BooksAPI.search(query)
         .then((response) => {
@@ -37,6 +43,7 @@ class Search extends Component {
           console.log(response);
       });
     }
+      console.log(query);
       console.log(this.state.booksFound);
   }
 
@@ -60,7 +67,7 @@ class Search extends Component {
                 <input type="text"
                        placeholder="Search by title or author"
                        value={ this.state.query }
-                       onChange={this.searchBooks}
+                       onChange={(event) => this.searchBooks(event.target.value)}
                 />
               </Debounce>
 
@@ -73,7 +80,6 @@ class Search extends Component {
               //       onChangeShelf={this.props.onChangeShelf}
               // />
             }
-
             </ol>
           </div>
         </div>

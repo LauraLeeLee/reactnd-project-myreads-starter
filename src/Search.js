@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-// import { Debounce } from 'react-throttle';
+import { Debounce } from 'react-throttle';
 import * as BooksAPI from './BooksAPI';
 // import Shelves from './Shelves';
 // import SelectShelf from './SelectShelf';
@@ -22,7 +22,7 @@ class Search extends Component {
       booksFound: [],
     }
     this.handleGetInput= this.handleGetInput.bind(this);
-    this.handleDebounce=this.handleDebounce.bind(this);
+    // this.handleDebounce=this.handleDebounce.bind(this);
   }
 
   handleGetInput(e) {
@@ -45,26 +45,26 @@ class Search extends Component {
       console.log(this.state.booksFound);
   }
 
-  debounced(delay, fn) {
-    let timerId;
-    return function (...args) {
-        if (timerId) {
-        clearTimeout(timerId);
-      }
-      timerId = setTimeout(() => {
-        fn(...args);
-        timerId = null;
-      }, delay);
-   }
- }
-
-  handleDebounce(e) {
-    // query=this.state.query;
-    if(e.target.value) {
-    this.debounced(400, this.handleGetInput);
-  }
-  console.log(e.target.value);
-  }
+ //  debounced(delay, fn) {
+ //    let timerId;
+ //    return function (...args) {
+ //        if (timerId) {
+ //        clearTimeout(timerId);
+ //      }
+ //      timerId = setTimeout(() => {
+ //        fn(...args);
+ //        timerId = null;
+ //      }, delay);
+ //   }
+ // }
+ //
+ //  handleDebounce(e) {
+ //    // query=this.state.query;
+ //    if(e.target.value) {
+ //    this.debounced(400, this.handleGetInput);
+ //  }
+ //  console.log(e.target.value);
+ //  }
 
   render() {
     console.log(this.state.query);
@@ -82,10 +82,10 @@ class Search extends Component {
                 However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                 you don't find a specific author or title. Every search is limited by search terms.
               */}
-
+              <Debounce time="500" handler="onChange">
                 <input type="text" placeholder="Search by title or author"
-                     onChange={this.handleDebounce} />
-
+                     onChange={this.handleGetInput} />
+              </Debounce>
 
             </div>
           </div>

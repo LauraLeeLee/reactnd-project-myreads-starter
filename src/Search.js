@@ -21,23 +21,25 @@ class Search extends Component {
       query: '',
       booksFound: [],
     }
-   // this.getInput=this.getInput.bind(this);
+   this.handleGetInput=this.handleGetInput.bind(this);
    this.searchBooks= this.searchBooks.bind(this);
   }
 
 
-  // getInput(query) {
-  //
-  //   this.setState({query: query.trim()});
-  //   this.searchBooks(query);
-  //     console.log(query);
-  // }
+  handleGetInput(query) {
+    this.setState({query: this.search.value});
+    if(this.state.query && this.state.query.length > 1) {
+        this.searchBooks(query);
+      }
+      console.log(this.state);
+  }
 
   searchBooks(query) {
+
     // const query = e.target.value.trim();
-    this.setState({ query: query.trim() });
+    // this.setState({ query: query.trim() });
     if(query !=='') {
-      BooksAPI.search(query)
+      BooksAPI.search(this.state.query)
         .then((response) => {
           this.setState({booksFound: response});
           console.log(response);
@@ -48,6 +50,9 @@ class Search extends Component {
   }
 
   render() {
+    const {query, booksFound} = this.state;
+    const {books, onChangeShelf } = this.props;
+
     console.log(this.state.query);
     console.log(this.state.booksFound);
     return(
@@ -66,21 +71,30 @@ class Search extends Component {
               <Debounce time="500" handler="onChange">
                 <input type="text"
                        placeholder="Search by title or author"
-                       value={ this.state.query }
-                       onChange={(event) => this.searchBooks(event.target.value)}
+                       ref={input => this.search = input}
+                       onChange={ this.handleGetInput }
                 />
               </Debounce>
 
             </div>
           </div>
           <div className="search-books-results">
-            <ol className="books-grid">
-              {// <Book
-              //       books = {this.props.books}
-              //       onChangeShelf={this.props.onChangeShelf}
-              // />
-            }
-            </ol>
+            { booksFound.length > 0 && (
+            <div>
+              <ol className="books-grid">
+              { booksFound.map((book) => (
+                <Book
+                      book={ book }
+                      books = {books}
+                      onChangeShelf={onChangeShelf}
+                      key={book.id}
+                />
+              ))}
+
+              </ol>
+
+           </div>
+           )}
           </div>
         </div>
     )

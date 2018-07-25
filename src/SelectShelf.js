@@ -30,25 +30,26 @@ class  SelectShelf extends Component {
     const {shelf} = this.state;
     const {book, books, onChangeShelf } = this.props;
 
-    // let currentShelf = 'none';
-    //
-    // for(let currentBook in books) {
-    //   if(currentBook.id === book.id) {
-    //     currentShelf = book.shelf;
-    //   }
-    // }
+    //sets default value for all books in search page
+    let currentShelf = 'none';
+
+    // //adds a shelf value for the search page books and to set shelf value with any books on shelves.
+    for(let currentBook of books) {
+      if(currentBook.id === book.id) {
+        // currentBook.shelf = book.shelf;
+        currentShelf = currentBook.shelf;
+      }
+    }
 
     return (
       <div className="book-shelf-changer">
-        <select  value={book.shelf}
-                 onChange={this.handleChange}
-                        >
-
+        <select  defaultValue={currentShelf}
+                 onChange={this.handleChange} >
           <option value="move" disabled>Move to...</option>
           <option value="currentlyReading">Currently Reading</option>
           <option value="wantToRead">Want to Read</option>
           <option value="read">Read</option>
-          <option value="none">None</option>
+          <option value="none" >None</option>
         </select>
       </div>
     )

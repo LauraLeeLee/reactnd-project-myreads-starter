@@ -31,6 +31,8 @@ class Search extends Component {
     this.setState({query: this.search.value});
     if(this.state.query && this.state.query.length) {
         this.searchBooks(query);
+      } else {
+        this.setState({booksFound:[], noResults: false});
       }
       console.log(this.state);
   }
@@ -47,7 +49,7 @@ class Search extends Component {
     } else  {
         this.setState({booksFound: [], noResults: false});
       }
-  
+
       console.log(query);
       console.log(this.state);
   }
@@ -98,7 +100,10 @@ class Search extends Component {
             )}
             <div className="no-search-results">
             { noResults && (
-               <p className="no-results">Sorry, no results found</p>
+              <div>
+                 <p className="no-results">Sorry, no results found <br/>
+                                          Please try your search again.</p>
+               </div>
             )}
             </div>
           </div>

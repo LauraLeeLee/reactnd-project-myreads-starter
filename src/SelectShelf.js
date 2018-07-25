@@ -24,13 +24,26 @@ class  SelectShelf extends Component {
     console.log(selectedShelf);
   }
 
-
 // value={book.shelf} onChange={(e) => this.updateBook(e.target.value)}
 
   render () {
+    const {shelf} = this.state;
+    const {book, books, onChangeShelf } = this.props;
+
+    // let currentShelf = 'none';
+    //
+    // for(let currentBook in books) {
+    //   if(currentBook.id === book.id) {
+    //     currentShelf = book.shelf;
+    //   }
+    // }
+
     return (
       <div className="book-shelf-changer">
-        <select  value={this.props.book.shelf} onChange={this.handleChange}>
+        <select  value={book.shelf}
+                 onChange={this.handleChange}
+                        >
+
           <option value="move" disabled>Move to...</option>
           <option value="currentlyReading">Currently Reading</option>
           <option value="wantToRead">Want to Read</option>

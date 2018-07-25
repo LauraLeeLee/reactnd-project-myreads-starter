@@ -12,7 +12,7 @@ class  Book extends Component {
 }
 
   render () {
-    const { book } = this.props;
+    const { book, onChangeShelf } = this.props;
     // const { authors, title, shelf, imageLinks } = book;
     // console.log(book, authors, title, shelf);
     // console.log(imageLinks.thumbnail)
@@ -29,7 +29,7 @@ class  Book extends Component {
           </div>
           <SelectShelf  book={book}
                         books={this.props.books}
-                        onChangeShelf={this.props.onChangeShelf} />
+                        onChangeShelf={onChangeShelf} />
         </div>
         <div className="book-title">{book.title}</div>
         <div className="book-authors">{book.authors}</div>

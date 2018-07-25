@@ -20,6 +20,7 @@ class Search extends Component {
    this.state = {
       query: '',
       booksFound: [],
+      noResults: false
     }
    this.handleGetInput=this.handleGetInput.bind(this);
    this.searchBooks= this.searchBooks.bind(this);
@@ -28,33 +29,36 @@ class Search extends Component {
 
   handleGetInput(query) {
     this.setState({query: this.search.value});
-    if(this.state.query && this.state.query.length > 1) {
+    if(this.state.query && this.state.query.length) {
         this.searchBooks(query);
       }
       console.log(this.state);
   }
 
   searchBooks(query) {
-
     // const query = e.target.value.trim();
     // this.setState({ query: query.trim() });
     if(query !=='') {
       BooksAPI.search(this.state.query)
         .then((response) => {
-          this.setState({booksFound: response});
+          response.length > 0 ? this.setState({booksFound: response, noResults: false}) : this.setState({booksFound: [], noResults: true});
           console.log(response);
       });
-    }
+    } else  {
+        this.setState({booksFound: [], noResults: false});
+      }
+  
       console.log(query);
-      console.log(this.state.booksFound);
+      console.log(this.state);
   }
 
   render() {
-    const {query, booksFound} = this.state;
+    const {query, booksFound, noResults} = this.state;
     const {books, onChangeShelf } = this.props;
 
     console.log(this.state.query);
-    console.log(this.state.booksFound);
+    console.log(this.state);
+
     return(
         <div className="search-books">
           <div className="search-books-bar">
@@ -75,7 +79,6 @@ class Search extends Component {
                        onChange={ this.handleGetInput }
                 />
               </Debounce>
-
             </div>
           </div>
           <div className="search-books-results">
@@ -90,11 +93,14 @@ class Search extends Component {
                       key={book.id}
                 />
               ))}
-
               </ol>
-
-           </div>
-           )}
+            </div>
+            )}
+            <div className="no-search-results">
+            { noResults && (
+               <p className="no-results">Sorry, no results found</p>
+            )}
+            </div>
           </div>
         </div>
     )

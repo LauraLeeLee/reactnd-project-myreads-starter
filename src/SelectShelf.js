@@ -13,7 +13,7 @@ class  SelectShelf extends Component {
    super(props);
    this.state = {shelf: this.props.book.shelf};
    this.handleChange= this.handleChange.bind(this);
-   console.log(this.state);
+   // console.log(this.state);
  }
 
   handleChange(e) {
@@ -40,6 +40,8 @@ class  SelectShelf extends Component {
         currentShelf = currentBook.shelf;
       }
     }
+
+    // console.log(currentShelf);
 
     return (
       <div className="book-shelf-changer">

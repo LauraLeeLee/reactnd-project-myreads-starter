@@ -23,6 +23,7 @@ class BooksApp extends React.Component {
   }
 
   changeShelf = (book, shelf) => {
+        console.log("changeShelf fired");
     BooksAPI.update(book, shelf).then(() => {
       let shelf = book.shelf;
 
@@ -37,18 +38,20 @@ class BooksApp extends React.Component {
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
-    })
+    });
   }
 
   render() {
-    console.log(this.state.books);
+    const { books, shelf } = this.state;
+
+    console.log(books);
     return (
       <div className="app">
         <Route exact path="/" render={() => (
           <div className="list-books">
               <Header/>
-              <Shelves books={this.state.books}
-                       shelf={this.state.shelf}
+              <Shelves books={ books }
+                       shelf={ shelf }
                        onChangeShelf={this.changeShelf}
               />
           </div>
@@ -56,7 +59,7 @@ class BooksApp extends React.Component {
 
         <Route path='/search'
               render={(props) => (
-              <Search books={this.state.books}
+              <Search books={ books }
                     onChangeShelf={this.changeShelf} />
         )}/>
       </div>

@@ -12,6 +12,8 @@ class  Shelves extends Component {
 
 
   render() {
+    const { onChangeShelf, books} = this.props;
+
     const bookshelves = ["currentlyReading", "wantToRead", "read"]
     const bookShelfNames = ["Currently Reading", "Want To Read", "Read"]
 
@@ -23,12 +25,12 @@ class  Shelves extends Component {
               <h2 className="bookshelf-title">{bookShelfNames[index]}</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                     {this.props.books.filter(book => book.shelf === shelf)
+                     {books.filter(book => book.shelf === shelf)
                        .map(book => (
                       <li key={book.id}>
                         <Book book={book}
-                              onChangeShelf={this.props.onChangeShelf}
-                              books = {this.props.books} />
+                              onChangeShelf={onChangeShelf}
+                              books={books} />
                       </li>
                     ))
                   }

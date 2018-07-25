@@ -12,7 +12,7 @@ class  Book extends Component {
 }
 
   render () {
-    const { book, onChangeShelf } = this.props;
+    const { book, onChangeShelf, books } = this.props;
     // const { authors, title, shelf, imageLinks } = book;
     // console.log(book, authors, title, shelf);
     // console.log(imageLinks.thumbnail)
@@ -24,12 +24,12 @@ class  Book extends Component {
     return (
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193,
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundRepeat: 'no-repeat', backgroundSize: 'contain',
                           backgroundImage: `url(${book.imageLinks && book.imageLinks.thumbnail ? book.imageLinks.thumbnail : noImage})` }}>
           </div>
           <SelectShelf  book={book}
-                        books={this.props.books}
-                        onChangeShelf={onChangeShelf} />
+                        books={ books }
+                        onChangeShelf={ onChangeShelf } />
         </div>
         <div className="book-title">{book.title}</div>
         <div className="book-authors">{book.authors}</div>

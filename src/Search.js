@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { Debounce } from 'react-throttle';
 import * as BooksAPI from './BooksAPI';
+import PropTypes from 'prop-types';
 // import Shelves from './Shelves';
 // import SelectShelf from './SelectShelf';
 import Book from './Book';
-import PropTypes from 'prop-types';
+
 
 
 class Search extends Component {
@@ -90,7 +91,7 @@ class Search extends Component {
                       book={ book }
                       books = {books}
                       onChangeShelf={onChangeShelf}
-                      key={book.id}
+                      key={ book.id }
                 />
               ))}
               </ol>

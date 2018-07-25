@@ -38,8 +38,6 @@ class Search extends Component {
   }
 
   searchBooks(query) {
-    // const query = e.target.value.trim();
-    // this.setState({ query: query.trim() });
     if(query !=='') {
       BooksAPI.search(this.state.query)
         .then((response) => {

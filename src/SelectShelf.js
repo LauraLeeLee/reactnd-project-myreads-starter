@@ -20,7 +20,7 @@ class  SelectShelf extends Component {
     const book = this.props.book;
     const selectedShelf = e.target.value;
     this.props.onChangeShelf(book, selectedShelf);
-    this.setState({ shelf: this.props.book.shelf });
+    this.setState({ shelf: book.shelf });
     console.log("shelf selected: ", selectedShelf);
   }
 

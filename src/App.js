@@ -22,28 +22,26 @@ class BooksApp extends React.Component {
     // showSearchPage: false
   }
 
-  changeShelf = (book, shelf) => {
-        console.log("changeShelf fired");
-    BooksAPI.update(book, shelf).then(() => {
-      let shelf = book.shelf;
-
-    });
-    BooksAPI.getAll().then((books) => {
-      this.setState({ books });
-    });
-    // console.log(book);
-    // console.log(this.state.books);
-  }
-
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
     });
   }
 
+  changeShelf = (book, shelf) => {
+    console.log("changeShelf fired");
+    BooksAPI.update(book, shelf).then(() => {
+      let shelf = book.shelf;
+    }).then(BooksAPI.getAll().then((books) => {
+        this.setState({ books });
+      }
+    ));
+    // console.log(book);
+    // console.log(this.state.books);
+  }
+
   render() {
     const { books, shelf } = this.state;
-
     // console.log(books);
     return (
       <div className="app">

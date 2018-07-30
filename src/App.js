@@ -33,11 +33,12 @@ class BooksApp extends React.Component {
   //function to change book on shelf and add new book from search via choosing a shelf
   changeShelf = (changeBook, shelf) => {
     console.log("changeShelf fired");
+    //updates anything with the BooksAPI
     BooksAPI.update(changeBook, shelf)
     .then((response) => {
       console.log('update response', response);
       //sets shelf chosen to be property of the book to move
-       shelf = changeBook.shelf;
+       changeBook.shelf = shelf;
        //removes moved book from books array
       var movedBooks = this.state.books.filter(movedBook => movedBook.id !== changeBook.id)
       //adds the moved book to new array of books

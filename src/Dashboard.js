@@ -12,8 +12,6 @@ class Dashboard extends Component {
    this.state = {show: false};
  }
 
-
-
   showModal = () => {
     this.state({ show: true });
   }
@@ -25,6 +23,10 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
+        <BookDetails  book={book}
+                      books={ books }
+                      show={ this.state.show }
+                      handleClose={ this.hideModal }/>
         <button className="about-button" onClick = {this.showModal}>About</button>
      </div>
     )

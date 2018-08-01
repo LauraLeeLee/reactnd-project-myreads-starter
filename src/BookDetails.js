@@ -17,18 +17,20 @@ class BookDetails extends Component {
     const showHideClassName = show ? "modal display-block" : "modal display-none";
 
     return (
-      <div className="about-book { showHideClassName }">
-        <div className="book-info">
-          <h2 className="about-title">
-            {book.title}
-          </h2>
+      <div className="{ showHideClassName }">
+        <div className="about-book">
+          <div className="book-info">
+            <h2 className="about-title">
+              {book.title}
+            </h2>
 
-          {book.description ? book.description.length !== 0 && (
-            <div className="book-description">
-              <span>{book.description}</span>
-            </div>
-          ) : "No description available"}
-          <button onClick={ handleClose }>X</button>
+            {book.description ? book.description.length !== 0 && (
+              <div className="book-description">
+                <span>{book.description}</span>
+              </div>
+            ) : "No description available"}
+            <button onClick={ this.handleClose }>X</button>
+          </div>
         </div>
       </div>
     )

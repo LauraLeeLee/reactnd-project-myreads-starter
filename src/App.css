@@ -163,14 +163,24 @@ body, .app {
   background: rgba(0, 0, 0, 0.6);
 }
 
+.details-close {
+  position: fixed;
+  right: 5px;
+  top: 2px;
+  size: 24px;
+}
+
 .about-book {
   position:fixed;
   background: white;
-  width: 80%;
-  height: auto;
+  width: 60%;
+  height: 300px;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+  z-index: 10;
+  overflow: scroll;
+  padding: 10px;
 }
 
 .display-block {

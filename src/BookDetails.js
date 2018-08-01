@@ -10,6 +10,7 @@ class BookDetails extends Component {
 
         <div className={`about-book ${ showHideClassName }`}>
           <div className="book-info">
+          <button className="details-close" onClick={ handleClose }>Close</button>
             <h2 className="about-title">
               {book.title}
             </h2>
@@ -19,7 +20,6 @@ class BookDetails extends Component {
                 <span>{book.description}</span>
               </div>
             ) : "No description available"}
-            <button onClick={ handleClose }>X</button>
           </div>
         </div>
 

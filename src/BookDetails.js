@@ -2,20 +2,10 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 class BookDetails extends Component {
-
-  static propTypes = {
-    book: PropTypes.object.isRequired,
-    books: PropTypes.array.isRequired,
-  }
-
-  constructor(props) {
-   super(props);
- }
-
   render() {
     const {book, books, show, handleClose } = this.props;
     const showHideClassName = show ? "modal display-block" : "modal display-none";
-
+  
     return (
       <div className="{ showHideClassName }">
         <div className="about-book">
@@ -29,7 +19,7 @@ class BookDetails extends Component {
                 <span>{book.description}</span>
               </div>
             ) : "No description available"}
-            <button onClick={ this.handleClose }>X</button>
+            <button onClick={ handleClose }>X</button>
           </div>
         </div>
       </div>

@@ -14,14 +14,17 @@ class Dashboard extends Component {
  }
 
   showModal = () => {
-    this.state({ show: true });
+    this.setState({ show: true });
   }
 
   hideModal = () => {
-    this.state({ show: false });
+    this.setState({ show: false });
+    console.log('hideModal clicked');
+    console.log(this.state);
   }
 
   render() {
+    console.log(this.state);
     const {book, books } = this.props;
     return (
       <div>

@@ -10,7 +10,7 @@ class BookDetails extends Component {
 
   constructor(props) {
    super(props);
-  
+
  }
 
   render() {
@@ -22,11 +22,11 @@ class BookDetails extends Component {
             {book.title}
           </h2>
 
-          {book.description ? (book.description.length !== 0 && (
+          {book.description ? book.description.length !== 0 && (
             <div className="book-description">
               <span>{book.description}</span>
             </div>
-          ) : undefined}
+          ) : "No description available"}
           <button onClick={ handleClose }>X</button>
         </div>
       </div>

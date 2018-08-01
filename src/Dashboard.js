@@ -22,6 +22,7 @@ class Dashboard extends Component {
   }
 
   render() {
+    const {book, books } = this.props;
     return (
       <div>
         <BookDetails  book={book}

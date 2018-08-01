@@ -10,11 +10,12 @@ class BookDetails extends Component {
 
   constructor(props) {
    super(props);
-
  }
 
   render() {
+    const {book, books, show, handleClose } = this.props;
     const showHideClassName = show ? "modal display-block" : "modal display-none";
+
     return (
       <div className="about-book { showHideClassName }">
         <div className="book-info">

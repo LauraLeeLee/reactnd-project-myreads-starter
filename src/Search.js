@@ -54,7 +54,7 @@ class Search extends Component {
   }
 
   render() {
-    const {query, booksFound, noResults} = this.state;
+    const {booksFound, noResults} = this.state;
     const {books, onChangeShelf } = this.props;
 
     console.log(this.state.query);

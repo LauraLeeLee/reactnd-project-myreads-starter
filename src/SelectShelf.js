@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 
-class  SelectShelf extends Component {
+class SelectShelf extends Component {
   static propTypes = {
     book: PropTypes.object.isRequired,
     books: PropTypes.array.isRequired,
@@ -29,7 +29,7 @@ class  SelectShelf extends Component {
 
   render () {
     const {shelf} = this.state;
-    const {book, books, onChangeShelf } = this.props;
+    const {book, books } = this.props;
 
     //sets default value for all books in search page
     let currentShelf = 'none';

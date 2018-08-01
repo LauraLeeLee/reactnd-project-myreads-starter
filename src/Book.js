@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 import SelectShelf from './SelectShelf';
 import PropTypes from 'prop-types';
-import noImage from './icons/noImage.png'
+import noImage from './icons/noImage.png';
+import Dashboard from './Dashboard';
 
 
-class  Book extends Component {
+class Book extends Component {
   static propTypes = {
     book: PropTypes.object.isRequired,
     books: PropTypes.array.isRequired,
     onChangeShelf: PropTypes.func.isRequired,
-}
+  }
 
   render () {
     const { book, onChangeShelf, books } = this.props;
@@ -33,6 +34,7 @@ class  Book extends Component {
         </div>
         <div className="book-title">{book.title}</div>
         <div className="book-authors">{book.authors}</div>
+        <Dashboard />
       </div>
     )
   }

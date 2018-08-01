@@ -135,6 +135,7 @@ body, .app {
 
 .book {
   width: 140px;
+  margin-bottom: 50px;
 }
 .book-title,
 .book-authors {
@@ -147,6 +148,21 @@ body, .app {
 .book-authors {
   color: var(--header-color);
 }
+
+.about-button {
+  background-color: var(--header-color);
+  color: var(--main-text);
+}
+
+.about-book {
+  width: 250px;
+}
+
+.about-title {
+  size: 36px;
+}
+
+
 
 .book-top {
   position: relative;

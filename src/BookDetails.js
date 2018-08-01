@@ -5,10 +5,10 @@ class BookDetails extends Component {
   render() {
     const {book, books, show, handleClose } = this.props;
     const showHideClassName = show ? "modal display-block" : "modal display-none";
-  
+
     return (
-      <div className="{ showHideClassName }">
-        <div className="about-book">
+
+        <div className={`about-book ${ showHideClassName }`}>
           <div className="book-info">
             <h2 className="about-title">
               {book.title}
@@ -22,7 +22,7 @@ class BookDetails extends Component {
             <button onClick={ handleClose }>X</button>
           </div>
         </div>
-      </div>
+
     )
   }
 

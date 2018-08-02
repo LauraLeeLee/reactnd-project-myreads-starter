@@ -7,13 +7,10 @@ class BookDetails extends Component {
     const {book, books, show, handleClose } = this.props;
     const showHideClassName = show ? "modal display-block" : "modal display-none";
 
-    let authorNum;
+    let author= 'Author';
     if(book.authors.length > 1){
-      authorNum = 'Authors';
-    } else {
-      authorNum = 'Author';
+      author += 's';
     }
-
     return (
 
         <div className={`about-book ${ showHideClassName }`}>
@@ -32,7 +29,7 @@ class BookDetails extends Component {
                 }}>
               </div>
               <h4 className="about-authors">
-              {authorNum}: {book.authors ? book.authors.map(author=>( <p className="authors-list" key={author}>{author} </p>)): undefined}
+              {author}: {book.authors ? book.authors.map(author=>( <p className="authors-list" key={author}>{author} </p>)): undefined}
               </h4>
             </div>
 

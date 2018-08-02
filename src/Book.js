@@ -32,10 +32,12 @@ class Book extends Component {
                         books={ books }
                         onChangeShelf={ onChangeShelf } />
         </div>
-        <div className="book-title">{book.title}</div>
-        <div className="book-authors">{book.authors}</div>
-        <Dashboard   book={book}
-                      books={ books } />
+        <div className="book-info-box">
+          <div className="book-title">{book.title}</div>
+          <div className="book-authors">{book.authors}</div>
+          <Dashboard   book={book}
+                        books={ books } />
+        </div>
       </div>
     )
   }

@@ -7,6 +7,13 @@ class BookDetails extends Component {
     const {book, books, show, handleClose } = this.props;
     const showHideClassName = show ? "modal display-block" : "modal display-none";
 
+    let authorNum;
+    if(book.authors.length > 1){
+      authorNum = 'Authors';
+    } else {
+      authorNum = 'Author';
+    }
+
     return (
 
         <div className={`about-book ${ showHideClassName }`}>
@@ -18,19 +25,22 @@ class BookDetails extends Component {
             <h3 className="about-subtitle">
               {book.subtitle ? book.subtitle : undefined }
             </h3>
-            <h4 className="about-authors">
-             {book.authors ? book.authors: undefined}
-            </h4>
-            <div className="book-cover details-cover"
-              style={{width: 128, height: 193, backgroundRepeat: 'no-repeat', backgroundSize: 'contain',
-                backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : noImage})`
-              }}>
-            </div>
-            {book.description ? book.description.length !== 0 && (
-              <div className="book-description">
-                <span>{book.description}</span>
+            <div >
+              <div className="book-cover details-cover"
+                style={{width: 128, height: 193, backgroundRepeat: 'no-repeat', backgroundSize: 'contain',
+                  backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : noImage})`
+                }}>
               </div>
+              <h4 className="about-authors">
+              {authorNum}: {book.authors ? book.authors.map(author=>( <p className="authors-list" key={author}>{author} </p>)): undefined}
+              </h4>
+            </div>
+
+            <div className="book-description">
+            {book.description ? book.description.length !== 0 && (
+                <span>{book.description}</span>
             ) : "No description available"}
+            </div>
           </div>
         </div>
 

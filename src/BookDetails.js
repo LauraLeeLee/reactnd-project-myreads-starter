@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import noImage from './icons/noImage.png';
 
 class BookDetails extends Component {
   render() {
@@ -14,7 +15,17 @@ class BookDetails extends Component {
             <h2 className="about-title">
               {book.title}
             </h2>
-
+            <h3 className="about-subtitle">
+              {book.subtitle ? book.subtitle : undefined }
+            </h3>
+            <h4 className="about-authors">
+             {book.authors ? book.authors: undefined}
+            </h4>
+            <div className="book-cover details-cover"
+              style={{width: 128, height: 193, backgroundRepeat: 'no-repeat', backgroundSize: 'contain',
+                backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : noImage})`
+              }}>
+            </div>
             {book.description ? book.description.length !== 0 && (
               <div className="book-description">
                 <span>{book.description}</span>

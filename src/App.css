@@ -181,6 +181,8 @@ body, .app {
   z-index: 10;
   overflow: scroll;
   padding: 10px;
+  background-color: var(--header-color);
+  color: var(--main-text);
 }
 
 .display-block {
@@ -193,6 +195,30 @@ body, .app {
 
 .about-title {
   size: 36px;
+  margin-bottom: 0;
+}
+
+.about-subtitle {
+  size: 28px;
+  margin: 0;
+}
+
+.about-authors {
+  padding-right: 30px;
+  margin-top: 0;
+  font-style: italic;
+}
+
+.book-description {
+  width: 65%;
+  /* position: relative; */
+  /* left: 225px; */
+  display: inline;
+  float: right;
+}
+
+.details-cover {
+  float: left;
 }
 
 .book-top {

@@ -286,9 +286,19 @@ width: 170px
 
 /* Media Queries */
 @media screen and (max-width: 600px) {
+
+  .about-book{
+    width: 90%;
+  }
+
   .details-close {
     background: var(--main-text);
   }
+
+  .about-title {
+    margin-top: 9px;
+  }
+
   .details-cover {
     float: none;
   }
@@ -297,6 +307,9 @@ width: 170px
     padding-right: 30px;
     margin-top: 0;
     font-style: italic;
+    position: relative;
+    top: 5px;
+    left: 1px;
   }
 
   .book-description {

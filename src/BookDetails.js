@@ -9,14 +9,14 @@ class BookDetails extends Component {
 
     let author;
     if(book.authors && book.authors.length > 1) {
-      author += 's';
+      author = 'Authors';
     } else {
         author = "Author";
     }
     return (
 
         <div className={`about-book ${ showHideClassName }`}>
-          <div className="book-info">
+
           <button className="details-close" onClick={ handleClose }>Close</button>
             <h2 className="about-title">
               {book.title}
@@ -41,7 +41,7 @@ class BookDetails extends Component {
                 <span>{book.description}</span>
             ) : "No description available"}
             </div>
-          </div>
+
         </div>
 
     )

@@ -142,7 +142,8 @@ body, .app {
 }
 
 .book-info-box {
-height: 100px;  
+height: 100px;
+width: 170px
 }
 
 .book-title,
@@ -153,6 +154,7 @@ height: 100px;
 .book-title {
   margin-top: 10px;
   color: var(--main-text);
+  font-weight: bold;
 }
 
 .book-authors {

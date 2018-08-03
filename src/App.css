@@ -114,6 +114,31 @@ body, .app {
   padding: 80px 10px 20px;
 }
 
+mark {
+  background: var(--main-color);
+  color: var(--header-color); 
+}
+.category-note{
+  text-align: center;
+ font-size: 18px;
+ /* font-weight: bold; */
+ line-height: 1em;
+ color: var(--header-color);
+}
+
+.search-terms {
+list-style:none;
+
+}
+
+.category {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+  color: var(--main-text);
+  background: var(--header-color);
+}
+
 .no-results {
   font-size: 30px;
   color: #fff;
@@ -293,6 +318,10 @@ width: 170px
 
   .details-close {
     background: var(--main-text);
+  }
+
+  .book {
+    margin: 10px 10px 50px;
   }
 
   .about-title {

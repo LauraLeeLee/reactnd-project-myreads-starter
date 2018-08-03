@@ -21,7 +21,24 @@ class Search extends Component {
    this.state = {
       query: '',
       booksFound: [],
-      noResults: false
+      noResults: false,
+      searchCategories: [
+       'Android', 'Art', 'Artificial Intelligence',
+       'Astronomy', 'Austen', 'Baseball', 'Basketball',
+       'Bhagat', 'Biography', 'Brief', 'Business', 'Camus',
+       'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook',
+       'Cricket', 'Cycling', 'Desai', 'Design', 'Development',
+       'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education',
+       'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness',
+       'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror',
+       'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson',
+       'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money',
+       'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography',
+       'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River',
+       'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare',
+       'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel',
+       'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
+      ]
     }
    this.handleGetInput=this.handleGetInput.bind(this);
    this.searchBooks= this.searchBooks.bind(this);
@@ -54,7 +71,7 @@ class Search extends Component {
   }
 
   render() {
-    const {booksFound, noResults} = this.state;
+    const {booksFound, noResults, query, searchCategories} = this.state;
     const {books, onChangeShelf } = this.props;
 
     console.log(this.state.query);
@@ -83,6 +100,19 @@ class Search extends Component {
             </div>
           </div>
           <div className="search-books-results">
+            {!query && (
+              <div>
+                <p className="category-note"><mark><b>Note:</b></mark><br/>
+                 The search is limited to a set of search terms.
+                Which are as follows:</p>
+                <ol className="search-terms">
+                {searchCategories.map(category => (
+                  <li key={category} className="category">{category}</li>
+                ))}
+                </ol>
+              </div>
+            )}
+
             { booksFound.length > 0 && (
             <div>
               <ol className="books-grid">

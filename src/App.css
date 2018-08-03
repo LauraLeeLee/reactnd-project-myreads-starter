@@ -138,7 +138,7 @@ body, .app {
 
 .book {
   width: 140px;
-  margin-bottom: 50px;
+  margin: 10px 25px 50px;
 }
 
 .book-info-box {
@@ -159,6 +159,10 @@ width: 170px
 
 .book-authors {
   color: var(--header-color);
+}
+
+.authors-list {
+  margin: 0;
 }
 
 .about-button {
@@ -227,7 +231,6 @@ width: 170px
 
 .about-book {
   position:fixed;
-  background: white;
   width: 60%;
   height: 300px;
   top:50%;
@@ -262,11 +265,12 @@ width: 170px
   padding-right: 30px;
   margin-top: 0;
   font-style: italic;
-  position: absolute;
-  top: 300px;
+  position: relative;
+  top: 220px;
+  left: -120px;
 }
 
-.authors-list {
+.detailsAuthors-list {
   margin: 0;
 }
 
@@ -278,4 +282,26 @@ width: 170px
 
 .details-cover {
   float: left;
+}
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+  .details-close {
+    background: var(--main-text);
+  }
+  .details-cover {
+    float: none;
+  }
+
+  .about-authors {
+    padding-right: 30px;
+    margin-top: 0;
+    font-style: italic;
+  }
+
+  .book-description {
+    width: 90%;
+    display: block;
+    float: none;
+  }
 }

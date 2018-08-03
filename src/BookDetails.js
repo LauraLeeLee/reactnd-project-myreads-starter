@@ -13,7 +13,6 @@ class BookDetails extends Component {
     } else {
         author = "Author";
     }
-    
     return (
 
         <div className={`about-book ${ showHideClassName }`}>
@@ -32,7 +31,8 @@ class BookDetails extends Component {
                 }}>
               </div>
               <h4 className="about-authors">
-              {author}: {book.authors ? book.authors.map(author=>( <p className="authors-list" key={author}>{author} </p>)) : "No authors found"}
+              {author}: {book.authors ? book.authors.map(author=>( <p className="detailsAuthors-list" key={author}>{author} </p>)) : "No authors found"}
+
               </h4>
             </div>
 

@@ -34,7 +34,7 @@ class Book extends Component {
         </div>
         <div className="book-info-box">
           <div className="book-title">{book.title}</div>
-          <div className="book-authors">{book.authors ? book.authors.map(author=>( <p className="authors-list" key={author}>{author} </p>)): undefined}</div>
+          <div className="book-authors">{book.authors ? book.authors.map(author=>( <p className="authors-list"key={author}>{author} </p>)): undefined}</div>
           <Dashboard   book={book}
                         books={ books } />
         </div>

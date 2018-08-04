@@ -102,9 +102,8 @@ class Search extends Component {
           <div className="search-books-results">
             {!query && (
               <div>
-                <p className="category-note"><mark><b>Note:</b></mark><br/>
-                 The search is limited to a set of search terms.
-                Which are as follows:</p>
+                <p className="category-note">
+                 Search is limited to the following search terms:</p>
                 <ol className="search-terms">
                 {searchCategories.map(category => (
                   <li key={category} className="category">{category}</li>

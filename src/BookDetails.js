@@ -31,9 +31,10 @@ class BookDetails extends Component {
                 }}>
               </div>
               <h4 className="about-authors">
-              {author}: {book.authors ? book.authors.map(author=>( <p className="detailsAuthors-list" key={author}>{author} </p>)) : "No authors found"}
-
+              {author}:
               </h4>
+              <div className="detailsAuthors-list">{book.authors ? book.authors.map(author=>( <p key={author}>{author} </p>)) : "No authors found"}
+              </div>
             </div>
 
             <div className="book-description">

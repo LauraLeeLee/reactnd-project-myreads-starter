@@ -296,12 +296,20 @@ width: 170px
   left: -120px;
 }
 
-.detailsAuthors-list {
+.details-authors-list {
   margin: 0;
   position: relative;
   top: 200px;
   right: 120px;
   width: 280px;
+}
+
+.authors-ol {
+  list-style-type: none;
+}
+
+.details-authors-list li {
+  padding: 0;
 }
 
 .book-description {

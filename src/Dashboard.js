@@ -24,7 +24,6 @@ class Dashboard extends Component {
   }
 
   render() {
-    console.log(this.state);
     const {book, books } = this.props;
     return (
       <div>
@@ -35,7 +34,6 @@ class Dashboard extends Component {
         <button className="about-button" onClick = {this.showModal}>About</button>
      </div>
     )
-
   }
 }
 

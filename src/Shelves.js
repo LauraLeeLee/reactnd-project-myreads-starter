@@ -9,8 +9,6 @@ class Shelves extends Component {
     books: PropTypes.array.isRequired
   }
 
-
-
   render() {
     const { onChangeShelf, books} = this.props;
 

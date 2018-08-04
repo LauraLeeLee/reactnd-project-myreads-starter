@@ -6,7 +6,6 @@ import Header from './Header';
 import Shelves from './Shelves';
 import Search from './Search';
 
-
 class BooksApp extends React.Component {
   state = {
     screen: 'list', //list or search

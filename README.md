@@ -53,3 +53,4 @@ A new browser window should open with the app running. Otherwise navigate in bro
 [Create React App](https://www.npmjs.com/package/create-react-app)
 [React](https://reactjs.org/)
 [Modal-component](https://alligator.io/react/modal-component/)
+[Codecademy react](https://www.codecademy.com/courses/react-101/lessons/this-props/exercises/this-props-children?action=resume_content_item)
